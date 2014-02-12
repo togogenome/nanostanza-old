@@ -1,7 +1,7 @@
-Organism Ph Nano
+Organism pH Nano
 ================
 
-TODO: Write a stanza description
+NanoStanza: Display growth pH of the specified organism
 
 ## Parameters:
 
@@ -9,14 +9,14 @@ TODO: Write a stanza description
 
 | Name             | Description                         |
 |------------------|-------------------------------------|
-| *data-stanza-foo | TODO: Write a parameter description |
+| *data-stanza-tax-d | Taxonomy ID |
 
 ## Sample:
 
 ```html
-<div data-stanza="<stanza url>"></div>
+<div data-stanza="http://localhost:9292/stanza/organism_ph_nano" data-stanza-tax-id="666510"></div>
 ```
 
 The above `<div>` will automatically embed the following Stanza in your HTML page.
 
-<div data-stanza="/stanza/organism_ph_nano"></div>
+<div data-stanza="/stanza/organism_ph_nano"> data-stanza-tax-id="6666510"</div>
