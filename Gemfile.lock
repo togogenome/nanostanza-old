@@ -11,6 +11,12 @@ PATH
       togostanza
 
 PATH
+  remote: ./protein_3d_structure_nano_stanza
+  specs:
+    protein_3d_structure_nano_stanza (0.0.1)
+      togostanza
+
+PATH
   remote: ./protein_ec_number_nano_stanza
   specs:
     protein_ec_number_nano_stanza (0.0.1)
@@ -106,6 +112,7 @@ PLATFORMS
 DEPENDENCIES
   organism_gc_nano_stanza!
   organism_ph_nano_stanza!
+  protein_3d_structure_nano_stanza!
   protein_ec_number_nano_stanza!
   protein_references_timeline_nano_stanza!
   togostanza
