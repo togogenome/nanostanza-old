@@ -1,7 +1,7 @@
 Protein References Timeline Nano
 ================================
 
-TODO: Write a stanza description
+nanostanza for timeline view of protein reference
 
 ## Parameters:
 
@@ -9,14 +9,16 @@ TODO: Write a stanza description
 
 | Name             | Description                         |
 |------------------|-------------------------------------|
-| *data-stanza-foo | TODO: Write a parameter description |
+| *data-stanza-tax-id | Taxonomy identifier. (e.g., 1148) |
+| *data-stanza-gene-id | Gene identifier. (e.g., slr0473) |
+
 
 ## Sample:
 
 ```html
-<div data-stanza="<stanza url>"></div>
+<div data-stanza="http://togogenome.org/stanza/protein_references_timeline_nano" data-stanza-tax-id="1148" data-stanza-gene-id="slr0473"></div>
 ```
 
 The above `<div>` will automatically embed the following Stanza in your HTML page.
 
-<div data-stanza="/stanza/protein_references_timeline_nano"></div>
+<div data-stanza="/stanza/protein_references_timeline_nano" data-stanza-tax-id="1148" data-stanza-gene-id="slr0473"></div>
