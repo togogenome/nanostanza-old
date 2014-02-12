@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Protein References Timeline Nano</title>
+    {{#each css_uri}}
+    <link rel="stylesheet" href="{{this}}" />
+    {{/each}}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.1/d3.min.js"></script>
+    {{adjust_iframe_height_script}}
+  </head>
+
+  <body>
+    <h1>{{title}}</h1>
+    <table id="split" class='table'>
+      <thead></thead>
+      <tbody></tbody>
+    </table>
+ <script>
+var references = {{{references.to_json}}}
+
+var dataSet = references.source;
+
+var margin = {top: 40, right: 40, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var yScale = d3.scale.linear()
+    .domain([0, d3.max(dataSet, function(d){ return d.counts })])
+    .range([height, 0]);
+
+//var xScale = d3.scale.linear()
+var xScale =  d3.scale.linear()
+    //.domain([1941, d3.max(dataSet, function(d){ return d.year })])
+    .domain([1941, 2014])
+    .range([width, 0]);
+ 
+var barchart = svg.selectAll('rect')
+    .data(dataSet)
+    .enter()
+    .append('rect')
+    .attr({
+        //x: function(d, i){ return i * 5 + margin.left },
+        x: function(d,i){ return xScale(d.year) + i },
+        y: function(d){ return yScale(d.counts)},
+        width: 5,
+    height: function(d){ return height - yScale(d.counts)} ,
+        fill: "orange"
+    });
+
+var xAxisCall = d3.svg.axis()
+     .scale(xScale)
+     .orient('bottom')
+     .ticks(10)
+
+var xAxis = svg.append('g')
+    .attr({
+        "class": "axis",
+        "transform": "translate(" + [margin.left, height] + ")" 
+    })  
+    
+    .call(xAxisCall)
+
+var yAxisCall = d3.svg.axis()
+    .scale(yScale)
+    .orient('left')
+ 
+var yAxis = svg.append('g')
+    .attr({
+        "class": "axis",
+        "transform": "translate(" + [margin.left, 0] + ")" 
+    })
+    .call(yAxisCall); 
+
+//d3.select('body').on('click', function(){
+//    scale.domain([0, d3.max(dataSet, function(d){ return d.year })]);
+//    yAxis.transition().call(yAxisCall);
+//    barchart
+//        .transition()
+//        .attr({
+//            y: function(d){ return scale(d.count)},
+//            height: function(d){ return height - scale(d.year)} , 
+//        });
+//});
+
+
+// create the table header
+var thead = d3.select("thead").selectAll("th")
+  .data(d3.keys(references[0]))
+  .enter().append("th").text(function(d){return d});
+
+// create rows
+var tr = d3.select("tbody").selectAll("tr")
+ .data(references).enter().append("tr")
+ 
+// cells
+var td = tr.selectAll("td")
+  .data(function(d){return d3.values(d)})
+  .enter().append("td")
+  .text(function(d) {return d})
+ </script>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Count</th>
+      <th>Citation URI</th>
+<!--
+      <th>Citations</th>
+//-->
+    </tr>
+  </thead>
+  <tbody>
+    {{#each references}}
+      <tr>
+        <td>{{year}}</td>
+        <td>{{{counts}}}</td>
+        <td><a href="{{citation_uri}}">{{citation_uri}}</a></td>
+<!--
+        <td>{{citations}}</td>
+//-->
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+  </body>
+</html>
