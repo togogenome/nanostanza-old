@@ -14,7 +14,7 @@ NanoStanza: Display GC percent of specified organism
 ## Sample:
 
 ```html
-<div data-stanza="http://localhost:9292/stanza/organism_gc_nano" data-stanza-tax-id="192222"></div>
+<div data-stanza="http://togogenome.org/stanza/organism_gc_nano" data-stanza-tax-id="192222"></div>
 ```
 
 The above `<div>` will automatically embed the following Stanza in your HTML page.
