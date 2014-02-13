@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Organism Genome Size Nano</title>
+    {{#each css_uri}}
+    <link rel="stylesheet" href="{{this}}" />
+    {{/each}}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
+    {{adjust_iframe_height_script}}
+  </head>
+
+  <body>
+    {{#if genome_size}}
+      Genome size: {{genome_size.genome_size}}<br>
+      Genome size(exponent notation): {{genome_size.mantissa}} x {{genome_size.base}}({{genome_size.exponent}})<br>
+    {{else}}
+      <div>
+        No data
+      </div>
+    {{/if}}
+  </body>
+</html>

@@ -5,6 +5,18 @@ PATH
       togostanza
 
 PATH
+  remote: ./organism_gene_number_nano_stanza
+  specs:
+    organism_gene_number_nano_stanza (0.0.1)
+      togostanza
+
+PATH
+  remote: ./organism_genome_size_nano_stanza
+  specs:
+    organism_genome_size_nano_stanza (0.0.1)
+      togostanza
+
+PATH
   remote: ./organism_ph_nano_stanza
   specs:
     organism_ph_nano_stanza (0.0.1)
@@ -99,6 +111,8 @@ PLATFORMS
 
 DEPENDENCIES
   organism_gc_nano_stanza!
+  organism_gene_number_nano_stanza!
+  organism_genome_size_nano_stanza!
   organism_ph_nano_stanza!
   protein_references_timeline_nano_stanza!
   togostanza
