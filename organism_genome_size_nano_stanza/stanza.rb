@@ -36,7 +36,6 @@ class OrganismGenomeSizeNanoStanza < TogoStanza::Stanza::Base
      exponent += 1
    end
    ret = { :genome_size => genome_size, :mantissa => mantissa.round(1), :exponent => exponent, :base => base } 
-p ret
    ret
   end
 end
