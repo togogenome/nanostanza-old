@@ -20,4 +20,4 @@ NanoStanza: Display an EC number of an enzyme coded by a specified gene
 
 The above `<div>` will automatically embed the following Stanza in your HTML page.
 
-<div data-stanza="/stanza/protein_ec_number_nano" data-stanza-tax-id="1035377 data-stanza-gene-id="A1122_00435"></div>
+<div data-stanza="/stanza/protein_ec_number_nano" data-stanza-tax-id="1035377" data-stanza-gene-id="A1122_00435"></div>
