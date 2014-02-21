@@ -11,3 +11,4 @@ gem 'organism_genome_size_nano_stanza', path: './organism_genome_size_nano_stanz
 gem 'protein_ec_number_nano_stanza', path: './protein_ec_number_nano_stanza'
 gem 'protein_3d_structure_nano_stanza', path: './protein_3d_structure_nano_stanza'
 gem 'environment_inhabitants_statistics_nano_stanza', path: './environment_inhabitants_statistics_nano_stanza'
+gem 'environment_organism_distribution_on_temperature_nano_stanza', path: './environment_organism_distribution_on_temperature_nano_stanza'

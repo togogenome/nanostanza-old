@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Environment Organism Distribution On Temperature Nano</title>
+    {{#each css_uri}}
+    <link rel="stylesheet" href="{{this}}" />
+    {{/each}}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
+    {{adjust_iframe_height_script}}
+  </head>
+
+  <body>
+    Psychrophile: {{num_orgs_with_temperature_range.Psychrophile}}
+    Mesophile: {{num_orgs_with_temperature_range.Mesophile}}
+    Thermophile: {{num_orgs_with_temperature_range.Thermophile}}
+  </body>
+</html>
