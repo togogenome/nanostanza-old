@@ -21,8 +21,8 @@ class EnvironmentOrganismDistributionOnPhNanoStanza < TogoStanza::Stanza::Base
         FILTER (regex(?tax_id, "identifiers.org") && !(?ph = <NopH>))
       }
     SPARQL
-    mapping = {0=>:ph0_2, 1=>:ph2_4, 2=>:ph4_6, 3=>:ph6_8, 4=>:ph8_10, 5=>:ph10_12, 6=>:ph12_14, 7=> :ph14 }
-    ph2orgs = {ph0_2: 0, ph2_4: 0 ,ph4_6: 0, ph6_8: 0, ph8_10: 0, ph10_12: 0, ph12_14: 0, ph14: 0 }
+    mapping = { 0=>:ph0_2, 1=>:ph2_4, 2=>:ph4_6, 3=>:ph6_8, 4=>:ph8_10, 5=>:ph10_12, 6=>:ph12_14, 7=> :ph14 }
+    ph2orgs = { ph0_2: 0, ph2_4: 0 ,ph4_6: 0, ph6_8: 0, ph8_10: 0, ph10_12: 0, ph12_14: 0, ph14: 0 }
 
     results.each do |rslt|
       if rslt.key?(:opt_ph)
