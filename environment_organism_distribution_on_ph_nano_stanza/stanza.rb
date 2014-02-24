@@ -21,16 +21,19 @@ class EnvironmentOrganismDistributionOnPhNanoStanza < TogoStanza::Stanza::Base
         FILTER (regex(?tax_id, "identifiers.org") && !(?ph = <NopH>))
       }
     SPARQL
-    keys = [:a, :b, :c, :d, :e, :f, :g]
-    mapping = {0=>:a, 1=>:b, 2=>:c, 3=>:d, 4=>:e, 5=>:f, 6=>:g}
-    vals = Array.new(7) {0}
-    ph2orgs = Hash[keys.zip(vals)]
+    mapping = {0=>:ph0_2, 1=>:ph2_4, 2=>:ph4_6, 3=>:ph6_8, 4=>:ph8_10, 5=>:ph10_12, 6=>:ph12_14, 7=> :ph14 }
+    ph2orgs = {ph0_2: 0, ph2_4: 0 ,ph4_6: 0, ph6_8: 0, ph8_10: 0, ph10_12: 0, ph12_14: 0, ph14: 0 }
+
     results.each do |rslt|
       if rslt.key?(:opt_ph)
-        ph2orgs[mapping[(rslt[:opt_ph].to_f / 2).floor]] += 1
-      else rslt.key?(:min_ph) && rslt.key?(:max_ph)
-        ph2orgs[mapping[((rslt[:min_ph].to_f + rslt[:max_ph].to_f)/ 4).floor]] += 1
+        ph_range = (rslt[:opt_ph].to_f / 2).floor
+      elsif rslt.key?(:min_ph) && rslt.key?(:max_ph)
+        ph_range = ((rslt[:min_ph].to_f + rslt[:max_ph].to_f)/ 4).floor
+      else
+        raise('must not happen')
       end
+
+      ph2orgs[mapping[ph_range]] += 1
     end
     ph2orgs
   end
