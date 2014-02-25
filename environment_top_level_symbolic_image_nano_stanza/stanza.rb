@@ -1,6 +1,6 @@
 class EnvironmentTopLevelSymbolicImageNanoStanza < TogoStanza::Stanza::Base
   property :top_level_category do |meo_id|
-    result = query("http://togostanza.org/sparql", <<-SPARQL.strip_heredoc)
+    result = query("http://togostanza.org/sparql", <<-SPARQL.strip_heredoc).first
       PREFIX meo: <http://purl.jp/bio/11/meo/>
       SELECT DISTINCT ?ancestor
       FROM <http://togogenome.org/graph/meo/>
@@ -10,21 +10,27 @@ class EnvironmentTopLevelSymbolicImageNanoStanza < TogoStanza::Stanza::Base
       }
     SPARQL
 
-    tg_img = "http://togogenome.org/images"
-    case result[0][:ancestor]
-    when /MEO_0000001/
-      result[0][:image_url] = "#{tg_img}/meo_atmosphere.jpg"
-    when /MEO_0000002/
-      result[0][:image_url] = "#{tg_img}/meo_terrestrial.jpg"
-    when /MEO_0000003/
-      result[0][:image_url] = "#{tg_img}/meo_human_activity.jpg"
-    when /MEO_0000004/
-      result[0][:image_url] = "#{tg_img}/meo_hydrosphere.jpg"
-    when /MEO_0000005/
-      result[0][:image_url] = "#{tg_img}/meo_organism_association.jpg"
-    else
-      result[0][:image_url] = "#{tg_img}/meo_not_found.jpg"
-    end
+    image_name = image_name_by_ancestor(result[:ancestor])
+    result[:image_url] = "http://togogenome.org/images/#{image_name}.jpg"
     result
+  end
+
+  private
+
+  def image_name_by_ancestor(ancestor)
+    case ancestor
+    when /MEO_0000001/
+      'meo_atmosphere'
+    when /MEO_0000002/
+      'meo_terrestrial'
+    when /MEO_0000003/
+      'meo_human_activity'
+    when /MEO_0000004/
+      'meo_hydrosphere'
+    when /MEO_0000005/
+      'meo_organism_association'
+    else
+      'meo_not_found'
+    end
   end
 end
