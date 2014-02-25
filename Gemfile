@@ -13,3 +13,4 @@ gem 'protein_3d_structure_nano_stanza', path: './protein_3d_structure_nano_stanz
 gem 'environment_inhabitants_statistics_nano_stanza', path: './environment_inhabitants_statistics_nano_stanza'
 gem 'environment_organism_distribution_on_temperature_nano_stanza', path: './environment_organism_distribution_on_temperature_nano_stanza'
 gem 'environment_organism_distribution_on_ph_nano_stanza', path: './environment_organism_distribution_on_ph_nano_stanza'
+gem 'environment_top_level_symbolic_image_nano_stanza', path: './environment_top_level_symbolic_image_nano_stanza'
