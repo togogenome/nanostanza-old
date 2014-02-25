@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Environment Organism Distribution On Ph Nano</title>
+    {{#each css_uri}}
+    <link rel="stylesheet" href="{{this}}" />
+    {{/each}}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
+    {{adjust_iframe_height_script}}
+  </head>
+
+  <body>
+    <p>pH   0-2: {{list.ph0_2}}</p>
+    <p>pH   2-4: {{list.ph2_4}}</p>
+    <p>pH   4-6: {{list.ph4_6}}</p>
+    <p>pH   6-8: {{list.ph6_8}}</p>
+    <p>pH  8-10: {{list.ph8_10}}</p>
+    <p>pH 10-12: {{list.ph10_12}}</p>
+    <p>pH 12-14: {{list.ph12_14}}</p>
+  </body>
+</html>
