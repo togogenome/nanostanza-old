@@ -17,6 +17,12 @@ PATH
       togostanza
 
 PATH
+  remote: ./environment_top_level_symbolic_image_nano_stanza
+  specs:
+    environment_top_level_symbolic_image_nano_stanza (0.0.1)
+      togostanza
+
+PATH
   remote: ./organism_gc_nano_stanza
   specs:
     organism_gc_nano_stanza (0.0.1)
@@ -143,6 +149,7 @@ DEPENDENCIES
   environment_inhabitants_statistics_nano_stanza!
   environment_organism_distribution_on_ph_nano_stanza!
   environment_organism_distribution_on_temperature_nano_stanza!
+  environment_top_level_symbolic_image_nano_stanza!
   organism_gc_nano_stanza!
   organism_gene_number_nano_stanza!
   organism_genome_size_nano_stanza!
