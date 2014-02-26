@@ -14,7 +14,7 @@
   <body>
     {{#if genome_size}}
       Genome size: {{genome_size.genome_size}}<br>
-      Genome size(exponent notation): {{genome_size.mantissa}} x {{genome_size.base}}({{genome_size.exponent}})<br>
+      Genome size(with unit): {{genome_size.mantissa}}{{genome_size.unit}}<br>
     {{else}}
       <div>
         No data

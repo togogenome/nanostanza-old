@@ -28,14 +28,22 @@ class OrganismGenomeSizeNanoStanza < TogoStanza::Stanza::Base
    end
 
    genome_size = (result.first[:all_project_length].to_f / result.first[:project_num].to_f).round
-   mantissa = genome_size
-   base = 10
-   exponent = 0
-   while mantissa > base do
-     mantissa /= base.to_f
-     exponent += 1
+
+   if genome_size >= 10**9
+     mantissa = (genome_size / (10**9).to_f).round(1)
+     unit = "Gb"
+   elsif genome_size >= 10**6
+     mantissa = (genome_size / (10**6).to_f).round(1)
+     unit = "Mb"
+   elsif genome_size >= 10**3
+     mantissa = (genome_size / (10**3).to_f).round(1)
+     unit = "Kb"
+   else
+     mantissa = genome_size 
+     unit = "b"
    end
-   ret = { :genome_size => genome_size, :mantissa => mantissa.round(1), :exponent => exponent, :base => base } 
+
+   ret = { :genome_size => genome_size, :mantissa => mantissa, :unit => unit }
    ret
   end
 end
