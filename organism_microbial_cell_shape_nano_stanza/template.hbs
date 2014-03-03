@@ -2,16 +2,26 @@
 
 <html>
   <head>
-    <title>Organism Microbial Cell Shape Nano</title>
-    {{#each css_uri}}
-    <link rel="stylesheet" href="{{this}}" />
-    {{/each}}
+    <meta charset='utf-8'>
+    <title>Organism Microbial Cell Shape</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stanza/assets/nanostanza.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
-    {{adjust_iframe_height_script}}
+    <script src="/stanza/assets/nanostanza.js"></script>
+    <script type="text/javascript">
+      var NANO_STANZA = {};
+      NANO_STANZA.EXTENSION = [];
+      NANO_STANZA.EXTENSION.push({label: "link", functionType: "blank", value: "{{cell_shapes.cell_shape}}"});
+      NANO_STANZA.EXTENSION.push({label: "open this image", functionType: "blank", value: "{{cell_shapes.image_url}}"});
+    </script>
+
   </head>
 
   <body>
-  <a href={{cell_shapes.first.cell_shape}}><img src={{cell_shapes.first.image_url}} alt={{cell_shapes.first.label}} width=105 height=105></a>
+    <h1>Organism Microbial Cell Shape</h1>
+    <div id="main-view">
+      <img class="single-image-view" src="{{cell_shapes.image_url}}" alt="{{cell_shapes.label}}" />
+    </div>
   </body>
 </html>
