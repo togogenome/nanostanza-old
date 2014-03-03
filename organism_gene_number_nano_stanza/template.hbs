@@ -2,35 +2,23 @@
 
 <html>
   <head>
-    <title>Organism Gene Number Nano</title>
-    {{#each css_uri}}
-    <link rel="stylesheet" href="{{this}}" />
-    {{/each}}
+    <meta charset='utf-8'>
+    <title>Organism Gene Number</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stanza/assets/nanostanza.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
-    {{adjust_iframe_height_script}}
+    <script src="/stanza/assets/nanostanza.js"></script>
   </head>
 
   <body>
+    <h1>Organism Gene Number</h1>
+    <div id="main-view">
     {{#if genome_stats}}
-      <table class='table'>
-        <tbody>
-          <tr>
-            <th>Gene number</th>
-            <th>rRNA number</th>
-            <th>tRNA number</th>
-          </tr>
-          <tr>
-            <td>{{genome_stats.gene_number}}</td>
-            <td>{{genome_stats.rrna_number}}</td>
-            <td>{{genome_stats.trna_number}}</td>
-          </tr>
-        </tbody>
-      </table>
+      <p class="multiline-text-view">Gene: {{genome_stats.gene_number}}<br/>rRNA: {{genome_stats.rrna_number}}<br/>tRNA: {{genome_stats.trna_number}}</p>
     {{else}}
-      <div>
-        No data
-      </div>
+      No data
     {{/if}}
+    </div>
   </body>
 </html>
