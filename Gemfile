@@ -14,3 +14,4 @@ gem 'environment_inhabitants_statistics_nano_stanza', path: './environment_inhab
 gem 'environment_organism_distribution_on_temperature_nano_stanza', path: './environment_organism_distribution_on_temperature_nano_stanza'
 gem 'environment_organism_distribution_on_ph_nano_stanza', path: './environment_organism_distribution_on_ph_nano_stanza'
 gem 'environment_top_level_symbolic_image_nano_stanza', path: './environment_top_level_symbolic_image_nano_stanza'
+gem 'organism_microbial_cell_shape_nano_stanza', path: './organism_microbial_cell_shape_nano_stanza'
