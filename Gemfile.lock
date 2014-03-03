@@ -41,6 +41,12 @@ PATH
       togostanza
 
 PATH
+  remote: ./organism_microbial_cell_shape_nano_stanza
+  specs:
+    organism_microbial_cell_shape_nano_stanza (0.0.1)
+      togostanza
+
+PATH
   remote: ./organism_ph_nano_stanza
   specs:
     organism_ph_nano_stanza (0.0.1)
@@ -153,6 +159,7 @@ DEPENDENCIES
   organism_gc_nano_stanza!
   organism_gene_number_nano_stanza!
   organism_genome_size_nano_stanza!
+  organism_microbial_cell_shape_nano_stanza!
   organism_ph_nano_stanza!
   protein_3d_structure_nano_stanza!
   protein_ec_number_nano_stanza!
