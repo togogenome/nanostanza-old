@@ -2,23 +2,23 @@
 
 <html>
   <head>
-    <title>Organism Genome Size Nano</title>
-    {{#each css_uri}}
-    <link rel="stylesheet" href="{{this}}" />
-    {{/each}}
+    <meta charset='utf-8'>
+    <title>Organism Genome Size</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stanza/assets/nanostanza.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
-    {{adjust_iframe_height_script}}
+    <script src="/stanza/assets/nanostanza.js"></script>
   </head>
 
   <body>
+    <h1>Organism Genome Size</h1>
+    <div id="main-view">
     {{#if genome_size}}
-      Genome size: {{genome_size.genome_size}}<br>
-      Genome size(with unit): {{genome_size.mantissa}}{{genome_size.unit}}<br>
+      <p class="single-text-view text-size-adjust text-size-middle">{{genome_size.mantissa}}<small>{{genome_size.unit}}</small></p>
     {{else}}
-      <div>
-        No data
-      </div>
+      No data
     {{/if}}
+    </div>
   </body>
 </html>

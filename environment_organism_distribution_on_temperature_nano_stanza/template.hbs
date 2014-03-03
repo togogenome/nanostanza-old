@@ -2,18 +2,19 @@
 
 <html>
   <head>
-    <title>Environment Organism Distribution On Temperature Nano</title>
-    {{#each css_uri}}
-    <link rel="stylesheet" href="{{this}}" />
-    {{/each}}
+    <meta charset='utf-8'>
+    <title>Environment Organism Distribution On Temperature </title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stanza/assets/nanostanza.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
-    {{adjust_iframe_height_script}}
+    <script src="/stanza/assets/nanostanza.js"></script>
   </head>
 
   <body>
-    Psychrophile: {{num_orgs_with_temperature_range.Psychrophile}}
-    Mesophile: {{num_orgs_with_temperature_range.Mesophile}}
-    Thermophile: {{num_orgs_with_temperature_range.Thermophile}}
+    <h1>Environment Organism Distribution On Temperature</h1>
+    <div id="main-view">
+      <p class="multiline-text-view">Psychrophile: {{num_orgs_with_temperature_range.Psychrophile}}<br/>Mesophile: {{num_orgs_with_temperature_range.Mesophile}}<br/>Thermophile: {{num_orgs_with_temperature_range.Thermophile}}</p>
+    </div>
   </body>
 </html>
