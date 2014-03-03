@@ -1,6 +1,6 @@
 class OrganismMicrobialCellShapeNanoStanza < TogoStanza::Stanza::Base
   property :cell_shapes do |tax_id|
-    results = query("http://togostanza.org/sparql", <<-SPARQL.strip_heredoc)
+    result = query("http://togostanza.org/sparql", <<-SPARQL.strip_heredoc).first
       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
       PREFIX mpo: <http://purl.jp/bio/01/mpo#>
       PREFIX tax: <http://identifiers.org/taxonomy/>
@@ -14,9 +14,7 @@ class OrganismMicrobialCellShapeNanoStanza < TogoStanza::Stanza::Base
         BIND(str(?l) AS ?label)
       }
     SPARQL
-    image = "http://togostanza.org/static/img/cell_shapes/"
-    url = image + results[0][:label].downcase + ".png"
-    results[0][:image_url] = url
-    results
+    result[:image_url] = ['http://togostanza.org/static/img/cell_shapes/', result[:label].downcase, '.png'].join
+    result
   end
 end
