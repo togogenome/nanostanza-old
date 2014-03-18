@@ -59,6 +59,12 @@ PATH
       togostanza
 
 PATH
+  remote: ./organism_related_disease_nano_stanza
+  specs:
+    organism_related_disease_nano_stanza (0.0.1)
+      togostanza
+
+PATH
   remote: ./protein_3d_structure_nano_stanza
   specs:
     protein_3d_structure_nano_stanza (0.0.1)
@@ -168,6 +174,7 @@ DEPENDENCIES
   organism_genome_size_nano_stanza!
   organism_microbial_cell_shape_nano_stanza!
   organism_ph_nano_stanza!
+  organism_related_disease_nano_stanza!
   protein_3d_structure_nano_stanza!
   protein_ec_number_nano_stanza!
   protein_references_timeline_nano_stanza!
