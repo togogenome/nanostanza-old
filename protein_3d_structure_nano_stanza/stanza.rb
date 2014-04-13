@@ -17,7 +17,7 @@ class Protein3dStructureNanoStanza < TogoStanza::Stanza::Base
     SPARQL
     results.map {|hash|
       hash.merge(
-        img_url: "http://pdbj.org/pdb_images/#{hash[:url][-4, 4].downcase!}.jpg"
+        img_url: "http://www.rcsb.org/pdb/images/#{hash[:url][-4, 4].downcase!}_bio_r_500.jpg"
       )
     }
   end
