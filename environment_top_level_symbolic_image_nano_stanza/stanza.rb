@@ -5,7 +5,8 @@ class EnvironmentTopLevelSymbolicImageNanoStanza < TogoStanza::Stanza::Base
       SELECT DISTINCT ?ancestor
       FROM <http://togogenome.org/graph/meo/>
       WHERE {
-        VALUES ?ancestor { meo:MEO_0000001 meo:MEO_0000002 meo:MEO_0000003 meo:MEO_0000004 meo:MEO_0000005 }
+        ?ancestor rdf:type owl:Class
+        FILTER (?ancestor IN (meo:MEO_0000001, meo:MEO_0000002, meo:MEO_0000003, meo:MEO_0000004, meo:MEO_0000005) ).
         meo:#{meo_id} rdfs:subClassOf* ?ancestor .
       }
     SPARQL
