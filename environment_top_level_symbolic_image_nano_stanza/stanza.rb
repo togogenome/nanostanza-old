@@ -11,27 +11,29 @@ class EnvironmentTopLevelSymbolicImageNanoStanza < TogoStanza::Stanza::Base
       }
     SPARQL
 
-    image_name = image_name_by_ancestor(result[:ancestor])
-    result[:image_url] = "http://togogenome.org/images/#{image_name}.jpg"
-    result
+    name = name_by_ancestor(result[:ancestor])
+    result.merge(
+      name: name.capitalize,
+      image_url: "/stanza/assets/environment_top_level_symbolic_image_nano/meo_#{name}.svg"
+    )
   end
 
   private
 
-  def image_name_by_ancestor(ancestor)
+  def name_by_ancestor(ancestor)
     case ancestor
     when /MEO_0000001/
-      'meo_atmosphere'
+      'atmosphere'
     when /MEO_0000002/
-      'meo_terrestrial'
+      'terrestrial'
     when /MEO_0000003/
-      'meo_human_activity'
+      'human_activity'
     when /MEO_0000004/
-      'meo_hydrosphere'
+      'hydrosphere'
     when /MEO_0000005/
-      'meo_organism_association'
+      'organism_association'
     else
-      'meo_not_found'
+      'not_found'
     end
   end
 end

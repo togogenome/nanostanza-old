@@ -33,13 +33,13 @@ ORDER BY ?year
 
   time = Time.new
 
-  references = (1941..time.year).map{ |y| 
+  references = (1941..time.year).map{ |y|
      {year: "#{y}",citation: ""}
   }
   grouping(references.concat(refs),:year,:citation).map{ |y|
     y[:citation].delete_at(0)
-    citation_uri = y[:citation].empty?  ? "" : "http://www.uniprot.org/citations/?query=#{y[:citation].map{ |c| c.sub('http://purl.uniprot.org/citations/','')}.join('+OR+')}" 
+    citation_uri = y[:citation].empty?  ? "" : "http://www.uniprot.org/citations/?query=#{y[:citation].map{ |c| c.sub('http://purl.uniprot.org/citations/','')}.join('+OR+')}"
     {year: "#{y[:year]}", counts: "#{y[:citation].size}", citation_uri: citation_uri , citations: "#{y[:citation]}"}
   }
-  end 
+  end
 end

@@ -12,9 +12,13 @@
   </head>
 
   <body>
-    <h1>Environment Organism Distribution On Temperature</h1>
+    <h1>Inhabitants / temperature</h1>
     <div id="main-view">
-      <p class="multiline-text-view">Psychrophile: {{num_orgs_with_temperature_range.Psychrophile}}<br/>Mesophile: {{num_orgs_with_temperature_range.Mesophile}}<br/>Thermophile: {{num_orgs_with_temperature_range.Thermophile}}</p>
+      <div class="growth-temperature hidden">
+        <div class="datum" data-temperature="psychrophile">{{num_orgs_with_temperature_range.Psychrophile}}</div>
+        <div class="datum" data-temperature="mesophile">{{num_orgs_with_temperature_range.Mesophile}}</div>
+        <div class="datum" data-temperature="thermophile">{{num_orgs_with_temperature_range.Thermophile}}</div>
+      </div>
     </div>
   </body>
 </html>

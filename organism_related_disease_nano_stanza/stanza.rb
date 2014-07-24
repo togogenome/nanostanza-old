@@ -14,6 +14,6 @@ class OrganismRelatedDiseaseNanoStanza < TogoStanza::Stanza::Base
       }
     SPARQL
 
-    results.empty? ? '' : 'http://togostanza.org/static/pdo/pathogen.png'
+    results.empty? ? '' : '/stanza/assets/organism_related_disease_nano/pathogen.svg'
   end
 end

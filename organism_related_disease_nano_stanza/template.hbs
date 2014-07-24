@@ -2,16 +2,18 @@
 
 <html>
   <head>
-    <title>Organism Related Disease Nano</title>
-    {{#each css_uri}}
-    <link rel="stylesheet" href="{{this}}" />
-    {{/each}}
+    <title>Organism Related Disease</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stanza/assets/nanostanza.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
-    {{adjust_iframe_height_script}}
+    <script src="/stanza/assets/nanostanza.js"></script>
   </head>
 
   <body>
-    <a href="{{list_disease}}"><img src="{{list_disease}}"></a>
+    <h1>Pathogenicity</h1>
+    <div id="main-view">
+      <img class='single-image-view' src="{{list_disease}}" alt='pathigen'>
+    </div>
   </body>
 </html>

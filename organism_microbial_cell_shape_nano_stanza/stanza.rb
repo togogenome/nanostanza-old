@@ -14,7 +14,7 @@ class OrganismMicrobialCellShapeNanoStanza < TogoStanza::Stanza::Base
         BIND(str(?l) AS ?label)
       }
     SPARQL
-    result[:image_url] = ['http://togostanza.org/static/img/cell_shapes/', result[:label].downcase, '.png'].join
+    result[:image_url] = ['http://togostanza.org/static/cell_shapes/shape_', result[:label].downcase, '.png'].join
     result
   end
 end

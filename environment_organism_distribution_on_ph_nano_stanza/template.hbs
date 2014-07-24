@@ -12,17 +12,17 @@
   </head>
 
   <body>
-    <h1>Environment Organism Distribution On Ph</h1>
+    <h1>Inhabitants / growth pH</h1>
     <div id="main-view">
-      <p class="multiline-text-view">
-        pH   0-2: {{list.ph0_2}}<br/>
-        pH   2-4: {{list.ph2_4}}<br/>
-        pH   4-6: {{list.ph4_6}}<br/>
-        pH   6-8: {{list.ph6_8}}<br/>
-        pH  8-10: {{list.ph8_10}}<br/>
-        pH 10-12: {{list.ph10_12}}<br/>
-        pH 12-14: {{list.ph12_14}}
-      </p>
+      <div class="bar-chart hidden" data-x-graduations-par="1" data-x-axis-unit="pH" data-y-axis-unit="number">
+        <div class="datum" data-x="0">{{list.ph0_2}}</div>
+        <div class="datum" data-x="2">{{list.ph2_4}}</div>
+        <div class="datum" data-x="4">{{list.ph4_6}}</div>
+        <div class="datum" data-x="6">{{list.ph6_8}}</div>
+        <div class="datum" data-x="8">{{list.ph8_10}}</div>
+        <div class="datum" data-x="10">{{list.ph10_12}}</div>
+        <div class="datum" data-x="12">{{list.ph12_14}}</div>
+      </div>
     </div>
   </body>
 </html>
