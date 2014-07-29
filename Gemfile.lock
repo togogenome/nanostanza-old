@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/togostanza/togostanza-gem.git
-  revision: a5fbdf1a87138b1faea18879d4803f9ad722d4a3
+  revision: 85a4706a9eaf43a9315bd2e0f26e55d8f3d15a27
   branch: desigin
   specs:
     togostanza (1.0.5)
@@ -131,7 +131,7 @@ GEM
     rack-test (0.6.2)
       rack (>= 1.0)
     raindrops (0.13.0)
-    rdf (1.1.4.2)
+    rdf (1.1.4.3)
     redcarpet (3.1.2)
     rltk (2.2.1)
       ffi (>= 1.0.0)
@@ -159,7 +159,7 @@ GEM
     tilt (1.4.1)
     tzinfo (1.2.1)
       thread_safe (~> 0.1)
-    unicorn (4.8.2)
+    unicorn (4.8.3)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
