@@ -12,13 +12,26 @@
   </head>
 
   <body>
-    <h1>Organism Gene Number</h1>
+    <h1>Number of genes</h1>
     <div id="main-view">
-    {{#if genome_stats}}
-      <p class="multiline-text-view">Gene: {{genome_stats.gene_number}}<br/>rRNA: {{genome_stats.rrna_number}}<br/>tRNA: {{genome_stats.trna_number}}</p>
-    {{else}}
-      <img src="/stanza/assets/no_data.svg" />
-    {{/if}}
+      {{#if genome_stats}}
+        <table class="key-value-table gene-length vertical-centering">
+          <tr>
+            <th class="gene">Gene</th><td>{{genome_stats.gene_number}}</td>
+          </tr>
+          <tr>
+            <th class="t-rna">tRNA</th><td>{{genome_stats.trna_number}}</td>
+          </tr>
+          <tr>
+            <th class="r-rna">rRNA</th><td>{{genome_stats.rrna_number}}</td>
+          </tr>
+          <tr>
+            <th class="nc-rna">ncRNA</th><td>{{genome_stats.ncrna_number}}</td>
+          </tr>
+        </table>
+      {{else}}
+        <img src="/stanza/assets/no_data.svg" />
+      {{/if}}
     </div>
   </body>
 </html>
