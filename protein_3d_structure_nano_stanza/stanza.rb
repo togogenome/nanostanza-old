@@ -1,6 +1,6 @@
 class Protein3dStructureNanoStanza < TogoStanza::Stanza::Base
   property :pdb do |tax_id, gene_id|
-    results = query("http://togostanza.org/sparql", <<-SPARQL.strip_heredoc)
+    result = query("http://togostanza.org/sparql", <<-SPARQL.strip_heredoc).first
       PREFIX core: <http://purl.uniprot.org/core/>
 
       SELECT ?up ?attr ?url
@@ -15,10 +15,11 @@ class Protein3dStructureNanoStanza < TogoStanza::Stanza::Base
         ?attr rdf:object ?url .
       }
     SPARQL
-    results.map {|hash|
-      hash.merge(
-        img_url: "http://www.rcsb.org/pdb/images/#{hash[:url][-4, 4].downcase!}_bio_r_500.jpg"
-      )
-    }
+
+    if result
+      result.merge(img_url: "http://www.rcsb.org/pdb/images/#{result[:url][-4, 4].downcase!}_bio_r_500.jpg")
+    else
+      {img_url: '/stanza/assets/no_data.svg'}
+    end
   end
 end

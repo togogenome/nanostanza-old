@@ -10,12 +10,16 @@ class EnvironmentTopLevelSymbolicImageNanoStanza < TogoStanza::Stanza::Base
         meo:#{meo_id} rdfs:subClassOf* ?ancestor .
       }
     SPARQL
+    if result
+      name = name_by_ancestor(result[:ancestor])
 
-    name = name_by_ancestor(result[:ancestor])
-    result.merge(
-      name: name.capitalize,
-      image_url: "/stanza/assets/environment_top_level_symbolic_image_nano/meo_#{name}.svg"
-    )
+      result.merge(
+        name: name.capitalize,
+        image_url: "/stanza/assets/environment_top_level_symbolic_image_nano/meo_#{name}.svg"
+      )
+    else
+      {image_url: "/stanza/assets/no_data.svg"}
+    end
   end
 
   private
@@ -25,15 +29,13 @@ class EnvironmentTopLevelSymbolicImageNanoStanza < TogoStanza::Stanza::Base
     when /MEO_0000001/
       'atmosphere'
     when /MEO_0000002/
-      'terrestrial'
+      'geosphere'
     when /MEO_0000003/
-      'human_activity'
+      'anthrosphere'
     when /MEO_0000004/
       'hydrosphere'
     when /MEO_0000005/
       'organism_association'
-    else
-      'not_found'
     end
   end
 end

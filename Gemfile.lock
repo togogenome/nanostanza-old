@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/togostanza/togostanza-gem.git
-  revision: 85a4706a9eaf43a9315bd2e0f26e55d8f3d15a27
+  revision: 8adb6d609f1f8e7ea01d14e509a898b50b392356
   branch: desigin
   specs:
     togostanza (1.0.5)

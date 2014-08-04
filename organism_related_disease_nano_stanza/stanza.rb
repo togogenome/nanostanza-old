@@ -14,6 +14,10 @@ class OrganismRelatedDiseaseNanoStanza < TogoStanza::Stanza::Base
       }
     SPARQL
 
-    results.empty? ? '' : '/stanza/assets/organism_related_disease_nano/pathogen.svg'
+    if results.empty?
+      '/stanza/assets/no_data.svg'
+    else
+      '/stanza/assets/organism_related_disease_nano/pathogen.svg'
+    end
   end
 end

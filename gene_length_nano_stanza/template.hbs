@@ -14,7 +14,11 @@
   <body>
     <h1>{{title}}</h1>
     <div id="main-view">
-      <p class="single-text-view text-size-adjust text-size-middle">{{results.first.gene_length}}<small>bp</small></p>
+      {{#if result}}
+        <p class="single-text-view text-size-adjust text-size-middle">{{result.gene_length}}<small>bp</small></p>
+      {{else}}
+        <img src="/stanza/assets/no_data.svg" />
+      {{/if}}
     </div>
   </body>
 </html>
