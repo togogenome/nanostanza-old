@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-#gem 'togostanza', "~> 1.0.5"
-gem 'togostanza', github: 'togostanza/togostanza-gem', branch: 'desigin'
+gem 'togostanza', "~> 1.0.6"
 gem 'unicorn'
 
 gem 'organism_gc_nano_stanza', path: './organism_gc_nano_stanza'
