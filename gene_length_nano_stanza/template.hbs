@@ -4,17 +4,19 @@
   <head>
     <meta charset='utf-8'>
     <title>{{title}}</title>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/stanza/assets/nanostanza.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
     <script src="/stanza/assets/nanostanza.js"></script>
   </head>
 
   <body>
     <h1>{{title}}</h1>
     <div id="main-view">
-      <p class="single-text-view text-size-adjust text-size-middle">{{results.first.gene_length}}<small>bp</small></p>
+      {{#if result}}
+        <p class="single-text-view text-size-adjust text-size-middle">{{result.gene_length}}<small>bp</small></p>
+      {{else}}
+        <img src="/stanza/assets/no_data.svg" />
+      {{/if}}
     </div>
   </body>
 </html>

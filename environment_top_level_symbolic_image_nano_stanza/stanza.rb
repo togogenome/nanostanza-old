@@ -5,32 +5,37 @@ class EnvironmentTopLevelSymbolicImageNanoStanza < TogoStanza::Stanza::Base
       SELECT DISTINCT ?ancestor
       FROM <http://togogenome.org/graph/meo/>
       WHERE {
-        VALUES ?ancestor { meo:MEO_0000001 meo:MEO_0000002 meo:MEO_0000003 meo:MEO_0000004 meo:MEO_0000005 }
+        ?ancestor rdf:type owl:Class
+        FILTER (?ancestor IN (meo:MEO_0000001, meo:MEO_0000002, meo:MEO_0000003, meo:MEO_0000004, meo:MEO_0000005) ).
         meo:#{meo_id} rdfs:subClassOf* ?ancestor .
       }
     SPARQL
+    if result
+      name = name_by_ancestor(result[:ancestor])
 
-    image_name = image_name_by_ancestor(result[:ancestor])
-    result[:image_url] = "http://togogenome.org/images/#{image_name}.jpg"
-    result
+      result.merge(
+        name: name.capitalize,
+        image_url: "/stanza/assets/environment_top_level_symbolic_image_nano/meo_#{name}.svg"
+      )
+    else
+      {image_url: "/stanza/assets/no_data.svg"}
+    end
   end
 
   private
 
-  def image_name_by_ancestor(ancestor)
+  def name_by_ancestor(ancestor)
     case ancestor
     when /MEO_0000001/
-      'meo_atmosphere'
+      'atmosphere'
     when /MEO_0000002/
-      'meo_terrestrial'
+      'geosphere'
     when /MEO_0000003/
-      'meo_human_activity'
+      'anthrosphere'
     when /MEO_0000004/
-      'meo_hydrosphere'
+      'hydrosphere'
     when /MEO_0000005/
-      'meo_organism_association'
-    else
-      'meo_not_found'
+      'organism_association'
     end
   end
 end

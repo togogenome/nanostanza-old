@@ -5,7 +5,7 @@ class OrganismGcNanoStanza < TogoStanza::Stanza::Base
     "GC%"
   end
 
-  property :gc do |tax_id|
+  property :atgc do |tax_id|
     # http://localhost:9292/stanza/organism_gc_nano?tax_id=192222
 
     results = query('http://togostanza.org/sparql', <<-SPARQL.strip_heredoc)
@@ -23,15 +23,25 @@ class OrganismGcNanoStanza < TogoStanza::Stanza::Base
         }
       }
     SPARQL
-    count = Hash.new(0)
-    results.each do |res|
+
+    count = results.inject({at: 0, gc: 0}) do |result, res|
       # {:refseq=>"NC_002163.1"}
       seq = open("http://togows.org/entry/nucleotide/#{res[:refseq]}/seq").read
-      at = seq.count("a") + seq.count("t")
-      gc = seq.count("g") + seq.count("c")
-      count["at"] += at
-      count["gc"] += gc
+
+      result[:at] += seq.count('a') + seq.count('t')
+      result[:gc] += seq.count('g') + seq.count('c')
+      result
     end
-    gc_percent = 100 * count["gc"] / (count["gc"] + count["at"])
+
+
+    {
+      gc_percentage: calc_percent(count[:gc], count[:gc] + count[:at]) ,
+      at_percentage: calc_percent(count[:at], count[:gc] + count[:at])
+    }
+  end
+
+  def calc_percent(val, sum)
+    return 'NaN' if sum.zero?
+    (val.to_f / sum.to_f * 100.0).to_i
   end
 end

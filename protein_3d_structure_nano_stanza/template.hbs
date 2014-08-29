@@ -4,23 +4,21 @@
   <head>
     <meta charset='utf-8'>
     <title>Protein 3D Structure</title>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/stanza/assets/nanostanza.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
     <script src="/stanza/assets/nanostanza.js"></script>
     <script type="text/javascript">
       var NANO_STANZA = {};
       NANO_STANZA.EXTENSION = [];
-      NANO_STANZA.EXTENSION.push({label: "link", functionType: "blank", value: "{{pdb.first.url}}"});
-      NANO_STANZA.EXTENSION.push({label: "open this image", functionType: "blank", value: "{{pdb.first.img_url}}"});
+      NANO_STANZA.EXTENSION.push({label: "Link", functionType: "blank", value: "{{pdb.url}}"});
+      NANO_STANZA.EXTENSION.push({label: "Open this image", functionType: "blank", value: "{{pdb.img_url}}"});
     </script>
   </head>
 
   <body>
-    <h1>Protein 3D Structure</h1>
+    <h1>3D structure</h1>
     <div id="main-view">
-      <img src={{pdb.first.img_url}} alt={{pdb.first.img_url}} class="single-image-view">
+      <img class="single-image-view" src={{pdb.img_url}} alt={{pdb.img_url}}>
     </div>
   </body>
 </html>
