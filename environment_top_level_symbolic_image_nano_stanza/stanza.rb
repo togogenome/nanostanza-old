@@ -18,7 +18,7 @@ class EnvironmentTopLevelSymbolicImageNanoStanza < TogoStanza::Stanza::Base
         image_url: "/stanza/assets/environment_top_level_symbolic_image_nano/meo_#{name}.svg"
       )
     else
-      {image_url: "/stanza/assets/no_data.svg"}
+      nil
     end
   end
 
