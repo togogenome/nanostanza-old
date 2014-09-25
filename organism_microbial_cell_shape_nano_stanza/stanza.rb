@@ -35,10 +35,7 @@ class OrganismMicrobialCellShapeNanoStanza < TogoStanza::Stanza::Base
       result[:image_url] = "/stanza/assets/organism_microbial_cell_shape_nano/#{result[:file_name]}"
       result
     else
-      {
-        image_url: '/stanza/assets/no_data.svg',
-        label: 'No data'
-      }
+      nil
     end
   end
 end

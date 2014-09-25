@@ -19,7 +19,7 @@ class Protein3dStructureNanoStanza < TogoStanza::Stanza::Base
     if result
       result.merge(img_url: "http://www.rcsb.org/pdb/images/#{result[:url][-4, 4].downcase!}_bio_r_500.jpg")
     else
-      {img_url: '/stanza/assets/no_data.svg'}
+      nil
     end
   end
 end

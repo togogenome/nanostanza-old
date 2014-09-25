@@ -34,14 +34,18 @@ class OrganismGcNanoStanza < TogoStanza::Stanza::Base
     end
 
 
-    {
-      gc_percentage: calc_percent(count[:gc], count[:gc] + count[:at]) ,
-      at_percentage: calc_percent(count[:at], count[:gc] + count[:at])
-    }
+
+    unless (sum = count[:gc] + count[:at]).zero?
+      {
+        gc_percentage: calc_percent(count[:gc], sum) ,
+        at_percentage: calc_percent(count[:at], sum)
+      }
+    else
+      nil
+    end
   end
 
   def calc_percent(val, sum)
-    return 'NaN' if sum.zero?
     (val.to_f / sum.to_f * 100.0).to_i
   end
 end
